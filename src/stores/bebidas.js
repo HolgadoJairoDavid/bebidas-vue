@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useModalStore } from "./modal";
-import { onMounted, reactive, ref } from "vue";
+import { onMounted, reactive, ref, computed } from "vue";
 import clienteService from "../services/clienteService";
 
 export const useBebidasStore = defineStore("bebidas", () => {
@@ -17,6 +17,9 @@ export const useBebidasStore = defineStore("bebidas", () => {
     const { data } = await clienteService.obtenerCategorias();
     categorias.value = data.drinks;
   });
+
+
+  const noRecetas = computed(()=> recetas.value.length === 0)
 
   // SECTOR DE FUNCIONES
   async function obtenerRecetas() {
@@ -35,6 +38,7 @@ export const useBebidasStore = defineStore("bebidas", () => {
     categorias,
     recetas,
     receta,
+    noRecetas,
     // EXPORTAMOS FUNCIONES
     obtenerRecetas,
     seleccionarBebida,
