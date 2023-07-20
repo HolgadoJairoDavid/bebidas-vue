@@ -10,9 +10,9 @@ export const useNotificacionesStore = defineStore("notificaciones", () => {
   // SECTOR DE LAS FUNCIONES
 
   function $reset (){
-     texto = ref("");
-     error = ref(false);
-     mostrar = ref(false);
+     texto.value = ""
+     error.value = false;
+     mostrar.value = false;
   
   }
   return {

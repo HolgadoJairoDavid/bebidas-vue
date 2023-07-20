@@ -38,7 +38,7 @@ export const useFavoritosStore = defineStore("favoritos", () => {
     favoritos.value = favoritos.value.filter(
       (favorito) => favorito.idDrink !== bebidas.receta.idDrink
     );
-    favoritos.value.push(bebidas.receta);
+
 
     notificaciones.texto = "Se eliminó de favoritos";
    
